@@ -1,5 +1,5 @@
 #include <array>
-
+#include <string>
 
 #include "daisysp.h"
 #include "Utility/dsp.h"
@@ -76,10 +76,13 @@ int main(void)
 
     hw.som.StartLog(false);
     hw.som.PrintLine("Hello world");
+    
 
     while(1) {
         for (unsigned i = 0; i < hw.knobs.size(); i++) {
-            hw.leds[i].Set(hw.knobs[i]->Value());
+            hw.leds[i].Set(daisysp::fmap(hw.knobs[i]->Value(), -1.0f, 1.0f));
+          // std::string message = "Knob value is: " + std::to_string(hw.knobs[0]->Value());
+    //hw.som.PrintLine(message.c_str());
         }
 
 #if __CCAM_TARGET_PLATFORM__ == PLATFORM_EARTH
