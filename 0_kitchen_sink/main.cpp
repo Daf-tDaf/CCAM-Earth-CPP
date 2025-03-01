@@ -11,10 +11,10 @@
 #define __CCAM_TARGET_PLATFORM__ PLATFORM_EARTH
 
 #if __CCAM_TARGET_PLATFORM__ == PLATFORM_ESTUARY
-    #include "estuary.h"
+    #include <ccam/hw/estuary.h>
     ccam::hw::Estuary hw;
 #elif __CCAM_TARGET_PLATFORM__ == PLATFORM_EARTH
-    #include "earth.h"
+    #include <ccam/hw/earth.h>
     ccam::hw::Earth hw;
 #else
     #error Unknown target platform please define __CCAM_TARGET_PLATFORM__
